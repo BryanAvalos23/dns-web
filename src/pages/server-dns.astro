@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import SideBar from "../components/SideBar.astro";
 ---
 
 <Layout title="Servidores DNS - Web">
   <Header />
-  <main></main>
+  <main class="grid lg:grid-cols-4 gap-16 px-20 lg:px-32 pt-10 py-10">
+    <SideBar uno="Instacion de Bind9" dos="Configuracion de bind9" />
+    <div class="flex flex-col gap-10 w-full lg:col-start-2 lg:col-end-5"></div>
+  </main>
 </Layout>

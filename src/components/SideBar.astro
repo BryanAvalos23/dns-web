@@ -1,0 +1,49 @@
+---
+const { uno, dos, tres, cuatro } = Astro.props;
+const secciones = [uno, dos, tres, cuatro];
+---
+
+<div
+  class="hidden lg:flex lg:flex-col lg:gap-5 lg:col-start-1 lg:col-end-2 px-6 py-5"
+>
+  <div id="contenido" class="flex flex-col gap-4">
+    <h3 class="font-semibold text-2xl">Contenido en esta seccion</h3>
+    {
+      secciones.map((item) => {
+        return (
+          item && (
+            <div class="border-l-4 border-orange-600 px-4 w-52">
+              <p>{item}</p>
+            </div>
+          )
+        );
+      })
+    }
+  </div>
+
+  <div id="others-sections" class="flex flex-col gap-4">
+    <h3 class="font-semibold text-2xl">Otras secciones de este sitio</h3>
+    <div class="border-l-4 border-orange-600 px-4">
+      <p>Servidor DNS</p>
+    </div>
+    <div class="border-l-4 border-orange-600 px-4">
+      <p>Servidor web</p>
+    </div>
+    <div class="border-l-4 border-orange-600 px-4">
+      <p>Configurar SSL</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="border-l-4 border-orange-600 px-4 w-52">
+  <p>{uno}</p>
+</div>
+<div class="border-l-4 border-orange-600 px-4 w-52">
+  <p>{dos}</p>
+</div>
+<div class="border-l-4 border-orange-600 px-4 w-52">
+  <p>{tres}</p>
+</div>
+<div class="border-l-4 border-orange-600 px-4 w-52">
+  <p>{cuatro}</p>
+</div> -->

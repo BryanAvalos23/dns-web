@@ -1,40 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import SideBar from "../components/SideBar.astro";
 ---
 
 <Layout title="Servidores DNS - Web">
   <Header />
   <main class="grid lg:grid-cols-4 gap-16 px-20 lg:px-32 pt-10 py-10">
-    <div
-      class="hidden lg:flex lg:flex-col lg:gap-5 lg:col-start-1 lg:col-end-2 px-6 py-5"
-    >
-      <div id="contenido" class="flex flex-col gap-4">
-        <h3 class="font-semibold text-2xl">Contenido en esta seccion</h3>
-        <div class="border-l-4 border-orange-600 px-4 w-52">
-          <p>Objetivos del proyecto</p>
-        </div>
-        <div class="border-l-4 border-orange-600 px-4 w-52">
-          <p>Herramientas utilizadas</p>
-        </div>
-        <div class="border-l-4 border-orange-600 px-4 w-52">
-          <p>Imagenes del proyecto</p>
-        </div>
-      </div>
-
-      <div id="others-sections" class="flex flex-col gap-4">
-        <h3 class="font-semibold text-2xl">Otras secciones de este sitio</h3>
-        <div class="border-l-4 border-orange-600 px-4">
-          <p>Servidor DNS</p>
-        </div>
-        <div class="border-l-4 border-orange-600 px-4">
-          <p>Servidor web</p>
-        </div>
-        <div class="border-l-4 border-orange-600 px-4">
-          <p>Configurar SSL</p>
-        </div>
-      </div>
-    </div>
+    <SideBar
+      uno="Introduccion"
+      dos="Objetivos del proyecto"
+      tres="Herramientas utilizadas"
+      cuatro="Imagenes del proyecto"
+    />
     <div class="flex flex-col gap-10 w-full lg:col-start-2 lg:col-end-5">
       <section class="flex flex-col gap-6 w-full lg:w-4/5">
         <h3 class="font-semibold text-4xl">Introduccion</h3>
@@ -87,7 +65,7 @@ import Header from "../components/Header.astro";
           <li class="text-lg font-normal text-gray-600">Openssl</li>
         </ul>
       </section>
-      <section class="flex flex-col gap-6">
+      <section class="flex flex-col gap-6 w-full lg:w-4/5">
         <h3 class="font-semibold text-4xl">
           Demostracion visual del proyecto completo
         </h3>
