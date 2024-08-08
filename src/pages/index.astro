@@ -5,5 +5,113 @@ import Header from "../components/Header.astro";
 
 <Layout title="Servidores DNS - Web">
   <Header />
-  <main></main>
+  <main class="grid grid-cols-4 gap-16 px-32 pt-10 py-10">
+    <div class="flex flex-col gap-5 col-start-1 col-end-2 px-6 py-5">
+      <div id="contenido" class="flex flex-col gap-4">
+        <h3 class="font-semibold text-2xl">Contenido en esta seccion</h3>
+        <div class="border-l-4 border-orange-600 px-4 w-52">
+          <p>Objetivos del proyecto</p>
+        </div>
+        <div class="border-l-4 border-orange-600 px-4 w-52">
+          <p>Herramientas utilizadas</p>
+        </div>
+        <div class="border-l-4 border-orange-600 px-4 w-52">
+          <p>Imagenes del proyecto</p>
+        </div>
+      </div>
+
+      <div id="others-sections" class="flex flex-col gap-4">
+        <h3 class="font-semibold text-2xl">Otras secciones de este sitio</h3>
+        <div class="border-l-4 border-orange-600 px-4">
+          <p>Servidor DNS</p>
+        </div>
+        <div class="border-l-4 border-orange-600 px-4">
+          <p>Servidor web</p>
+        </div>
+        <div class="border-l-4 border-orange-600 px-4">
+          <p>Configurar SSL</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-10 col-start-2 col-end-5">
+      <section class="flex flex-col gap-6 w-4/5">
+        <h3 class="font-semibold text-4xl">Introduccion</h3>
+        <p class="text-lg font-normal text-gray-600">
+          En la siguiente documentacion estaremos creando una infraestructura
+          utilizando dos servidores con ubuntu server lo cual permitira
+          comunicar un cliente Ubuntu desktop con un sitio web local, todo por
+          medio de un servidor DNS que estara redirigiendo la solicitud del
+          cliente a un servidor web con apache.
+        </p>
+        <p class="text-lg font-normal text-gray-600">
+          Se pondra en practica conceptos fundamentales de administracion de
+          sistemas (SysAdmin), incluyendo la configuracion y gestion de
+          servidores, implementacion de servicios DNS, configuracion de servidor
+          web seguro y la interaccion entre distintos componentes de red.
+        </p>
+      </section>
+      <section class="flex flex-col gap-6 w-4/5">
+        <h3 class="font-semibold text-4xl">Objetivos del proyecto</h3>
+        <ul class="flex flex-col gap-4">
+          <li class="text-lg font-normal text-gray-600">
+            1. Configurar Servidor DNS: Implementar un servidor DNS utilizando
+            Bind9 para la resolucion de nombres de dominio en la red local.
+          </li>
+          <li class="text-lg font-normal text-gray-600">
+            2. Implementar Servidor Web: Configurar un servidor web en Apache,
+            con la capacidad de servir contenido de manera segura mediante una
+            implementacion de certtificado SSL con OpenSSL.
+          </li>
+          <li class="text-lg font-normal text-gray-600">
+            3. Interaccion Cliente-Servidor: Establecer una comunicacion entre
+            un cliente Ubuntu Desktop y los servidores configurados, asegurando
+            el correcto funcionamiento de todas las configuraciones.
+          </li>
+        </ul>
+      </section>
+      <section class="flex flex-col gap-6">
+        <h3 class="font-semibold text-4xl">Herramientas utilizadas</h3>
+        <ul class="flex flex-col gap-2">
+          <li class="text-lg font-normal text-gray-600">Ubuntu Server 22.04</li>
+          <li class="text-lg font-normal text-gray-600">
+            Ubuntu Desktop 22.04
+          </li>
+          <li class="text-lg font-normal text-gray-600">Virtual Box</li>
+          <li class="text-lg font-normal text-gray-600">
+            Tabby y GitBash (Conexiones ssh)
+          </li>
+          <li class="text-lg font-normal text-gray-600">Apache2</li>
+          <li class="text-lg font-normal text-gray-600">Bind9</li>
+          <li class="text-lg font-normal text-gray-600">Openssl</li>
+        </ul>
+      </section>
+      <section class="flex flex-col gap-6">
+        <h3 class="font-semibold text-4xl">
+          Demostracion visual del proyecto completo
+        </h3>
+        <p class="text-lg font-normal text-gray-600">
+          En esta seccion, se presenta la visualizacion final del proyecto. A
+          continuacion, se miestra el sitio web montado en el servidor Apache y
+          la arquitectura de la infraestructura que permite la comunicacion
+          entre el cliente y los servidores.
+        </p>
+        <div class="flex flex-col gap-4">
+          <picture>
+            <img
+              src="/images/site.webp"
+              alt="arquitectura del proyecto"
+              class="w-2/3"
+            />
+          </picture>
+          <picture>
+            <img
+              src="/images/DNS-WEB.webp"
+              alt="arquitectura del proyecto"
+              class="w-2/3"
+            />
+          </picture>
+        </div>
+      </section>
+    </div>
+  </main>
 </Layout>
