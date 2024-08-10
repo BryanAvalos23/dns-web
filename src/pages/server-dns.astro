@@ -4,6 +4,17 @@ import Header from "../components/Header.astro";
 import SideBar from "../components/SideBar.astro";
 import BlockCode from "../components/BlockCode.astro";
 import ArticleDnsServer from "../components/ArticleDnsServer.astro";
+
+const ips = [
+  {
+    nombre: "web",
+    ip: "192.168.1.20",
+  },
+  {
+    nombre: "DNS",
+    ip: "192.168.1.21",
+  },
+];
 ---
 
 <Layout title="Servidores DNS - Web">
@@ -13,6 +24,19 @@ import ArticleDnsServer from "../components/ArticleDnsServer.astro";
     <div class="flex flex-col gap-10 w-full lg:col-start-2 lg:col-end-5">
       <section class="flex flex-col gap-6 w-full lg:w-4/5">
         <h2 class="font-semibold text-4xl">Instalacion de Bind</h2>
+
+        <div class="flex gap-8">
+          {
+            ips.map((server) => {
+              return (
+                <p class="text-lg font-normal text-gray-600">
+                  IP servidor {server.nombre}: {server.ip}
+                </p>
+              );
+            })
+          }
+        </div>
+
         <ArticleDnsServer
           code="sudo apt update"
           text="1. Actualizamos el sistema"
