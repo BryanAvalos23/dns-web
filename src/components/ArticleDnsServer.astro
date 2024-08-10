@@ -1,0 +1,9 @@
+---
+import BlockCode from "./BlockCode.astro";
+const { code, text } = Astro.props;
+---
+
+<article class="flex flex-col gap-2">
+  <p class="text-lg font-normal text-gray-600">{text}</p>
+  <BlockCode code={code} language="HTML" />
+</article>
