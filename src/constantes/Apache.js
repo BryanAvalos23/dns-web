@@ -1,17 +1,17 @@
 export const SITIO = [
   {
     id: 1,
-    text: "Nos movemos donde alojaremos nuestro sitio extraido de github /var/www",
+    texto: "Nos movemos donde alojaremos nuestro sitio extraido de github /var/www",
     code: "cd /var/www"
   },
   {
     id: 2,
-    text: "Clonamos el repositorio.",
+    texto: "Clonamos el repositorio.",
     code: "git clone https://github.com/BryanAvalos23/carrito-university.git"
   },
   {
     id: 3,
-    text: "Cambiamos el nombre a nuestro gusto, en este caso se llamara tienda.",
+    texto: "Cambiamos el nombre a nuestro gusto, en este caso se llamara tienda.",
     code: "sudo mv carrito-tienda tienda"
   },
 ]

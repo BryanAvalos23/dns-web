@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import SideBar from "../components/SideBar.astro";
 import ArticleDnsServer from "../components/ArticleDnsServer.astro";
+import ArticleServices from "../components/ArticleServices.astro";
 import IPS from "../components/IPS.astro";
+import { INSTALL, CONFIGURATIONS } from "../constantes/DNS";
 ---
 
 <Layout title="Servidores DNS - Web">
@@ -14,124 +16,31 @@ import IPS from "../components/IPS.astro";
       <section class="flex flex-col gap-6 w-full lg:w-4/5">
         <h2 class="font-semibold text-4xl">Instalacion de Bind</h2>
         <IPS />
-        <ArticleDnsServer
-          code="sudo apt update"
-          text="1. Actualizamos el sistema"
-        />
-        <ArticleDnsServer
-          code="sudo apt install bind9"
-          text="2. Instalamos bind"
-        />
+        {
+          INSTALL.map((paso) => {
+            return (
+              <ArticleServices
+                text={paso.texto}
+                code={paso.code}
+                id={paso.id}
+              />
+            );
+          })
+        }
       </section>
       <section class="flex flex-col gap-6 w-full lg:w-4/5">
         <h2 class="font-semibold text-4xl">Configuracion de Bind</h2>
-        <ArticleDnsServer
-          code="cd /etc/bind"
-          text="1. Nos movemos a la carpeta de bind."
-        />
-        <ArticleDnsServer
-          code="sudo nano named.conf.local"
-          text="2. Editaremos el archivo named.conf.local"
-        />
-        <ArticleDnsServer
-          code=`
-          # Zona directa
-          zone "bryanavalos.com" IN {
-            type master;
-            file "etc/bind/zonas/db.tienda.local";
-          }
-
-          # Zona inversa
-          zone "1.168.192.in-addr.arpa" IN {
-            type master;
-            file "etc/bind/zonas/db.192"
-          }
-          `
-          text="3. Dentro del archivo crearemos la zona directa y zona inversa."
-        />
-
-        <ArticleDnsServer
-          code="mkdir zonas"
-          text="4. Aun no tenes los archivos de cada zona, crearemos el directorio y copiaremos los archivos."
-        />
-
-        <ArticleDnsServer
-          code="sudo cp db.local ./zonas/db.tienda.local"
-          text="5. Copiaremos el archivo que necesitamos para comenzar la configuracion de la zona directa."
-        />
-
-        <ArticleDnsServer
-          code="sudo nano db.tienda.local"
-          text="6. Editaremos el archivo db.tienda.local"
-        />
-
-        <ArticleDnsServer
-          code=`
-            ; BIND data file for local loopback interface
-            ;
-            $TTL    604800
-            @       IN      SOA     bryan.bryantienda.com. root.bryantienda.com. (
-                                          2         ; Serial
-                                    604800         ; Refresh
-                                      86400         ; Retry
-                                    2419200         ; Expire
-                                    604800 )       ; Negative Cache TTL
-            ;
-            @       IN      NS      bryan.bryantienda.com.
-            bryan   IN      A       192.168.1.21
-            @       IN      A       192.168.1.20
-            www     IN      CNAME   bryan.bryantienda.com.
-          `
-          text="7. El codigo de configuracion es el siguiente"
-        />
-
-        <ArticleDnsServer
-          code="sudo cp ./db.tienda.local ./db.192"
-          text="8. Ahora copiaremos el archivo para la zona inversa."
-        />
-
-        <ArticleDnsServer
-          code="sudo nano db.tienda.local"
-          text="9. Editaremos el archivo db.tienda.local"
-        />
-
-        <ArticleDnsServer
-          code=`
-            ; BIND data file for local loopback interface
-            ;
-            $TTL    604800
-            @       IN      SOA     bryan.bryantienda.com. root.bryantienda.com. (
-                                          2         ; Serial
-                                    604800         ; Refresh
-                                      86400         ; Retry
-                                    2419200         ; Expire
-                                    604800 )       ; Negative Cache TTL
-            ;
-            @       IN      NS      bryan.bryantienda.com.
-            bryan   IN      A       192.168.1.21
-            20      IN      PTR     bryan.bryantienda.com
-          `
-          text="10. El codigo de configuracion es el siguiente."
-        />
-
-        <ArticleDnsServer
-          code="sudo systemctl restart bind9"
-          text="11. Reiniciaremos bind para que los cambios se guarden."
-        />
-
-        <ArticleDnsServer
-          code="sudo named-checkconf"
-          text="12. Verificamos que los named funcionen corretamente"
-        />
-
-        <ArticleDnsServer
-          code=`
-            # ejecutar linea por linea
-            sudo named-checkzone bryanavalos.com /etc/bind/db.tienda.local
-            sudo named-checkzone 1.168.192.in-addr.arpa /etc/bind/db.192
-          `
-          text="13. Verificamos que los archivos de zona funcionen correctamente."
-        />
+        {
+          CONFIGURATIONS.map((paso) => {
+            return (
+              <ArticleServices
+                text={paso.texto}
+                code={paso.code}
+                id={paso.id}
+              />
+            );
+          })
+        }
       </section>
     </div>
   </main>

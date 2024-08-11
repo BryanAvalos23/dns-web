@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import SideBar from "../components/SideBar.astro";
 import ArticleServices from "../components/ArticleServices.astro";
+import IPS from "../components/IPS.astro";
 
 import {
   INSTALL,
@@ -24,6 +25,7 @@ import {
         <h2 class="font-semibold text-4xl text-center lg:text-left">
           Instalacion de apache2
         </h2>
+        <IPS />
         {
           INSTALL.map((paso) => {
             return (
