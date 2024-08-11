@@ -123,3 +123,5 @@ export const CONFIGURATIONS = [
     `
   },
 ]
+
+export const OTHER_SECTIONS = ["Servidor web", "Configurar SSL", "Configurar DNS en cliente"]
