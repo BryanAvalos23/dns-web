@@ -1,14 +1,18 @@
 ---
 import Logo from "./Logo.astro";
 import LinkNav from "./LinkNav.astro";
+import Menu from "./Icons/Menu.astro";
 ---
 
 <nav class="flex justify-between px-12 py-8">
   <Logo class="w-20" />
-  <ul class="flex gap-12">
-    <LinkNav enlace="/" contenido="Home" />
-    <LinkNav enlace="/server-dns" contenido="Server DNS" />
-    <LinkNav enlace="/server-web" contenido="Server WEB" />
-    <LinkNav enlace="/ssl" contenido="SSL" />
-  </ul>
+  <div class="flex gap-4">
+    <ul class="hidden gap-12 sm:flex">
+      <LinkNav enlace="/" contenido="Home" />
+      <LinkNav enlace="/server-dns" contenido="Server DNS" />
+      <LinkNav enlace="/server-web" contenido="Server WEB" />
+      <LinkNav enlace="/ssl" contenido="SSL" />
+    </ul>
+    <Menu class="text-white block sm:hidden font-bold" />
+  </div>
 </nav>
