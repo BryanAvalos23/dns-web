@@ -3,7 +3,7 @@ import BlockCode from "./BlockCode.astro";
 const { code, text, id } = Astro.props;
 ---
 
-<article class="flex flex-col gap-2">
+<article class="flex flex-col gap-2 w-5/6 lg:w-full">
   <p class="text-lg font-normal text-gray-600">{id}. {text}</p>
   <BlockCode code={code} language="HTML" />
 </article>

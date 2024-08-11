@@ -13,11 +13,17 @@ import {
 
 <Layout title="Servidores DNS - Web">
   <Header />
-  <main class="grid lg:grid-cols-4 gap-16 px-20 lg:px-32 pt-10 py-10">
+  <main
+    class="flex flex-col lg:grid lg:grid-cols-4 gap-16 px-4 md:px-10 xl:px-32 pt-10 py-10"
+  >
     <SideBar uno="Instalacion de apache2" dos="Configuracion de apache2" />
     <div class="flex flex-col gap-10 w-full lg:col-start-2 lg:col-end-5">
-      <section class="flex flex-col gap-6 w-full lg:w-4/5">
-        <h2 class="font-semibold text-4xl">Instalacion de apache2</h2>
+      <section
+        class="flex flex-col items-center justify-center lg:items-start lg:justify-start gap-6 w-full lg:w-4/5"
+      >
+        <h2 class="font-semibold text-4xl text-center lg:text-left">
+          Instalacion de apache2
+        </h2>
         {
           INSTALL.map((paso) => {
             return (
@@ -30,8 +36,12 @@ import {
           })
         }
       </section>
-      <section class="flex flex-col gap-6 w-full lg:w-4/5">
-        <h2 class="font-semibold text-4xl">Configuracion de apache2</h2>
+      <section
+        class="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-6 w-full lg:w-4/5"
+      >
+        <h2 class="font-semibold text-4xl text-center lg:text-left">
+          Configuracion de apache2
+        </h2>
         {
           CONFIGURATION.map((paso) => {
             return (
@@ -44,7 +54,9 @@ import {
           })
         }
       </section>
-      <section class="flex flex-col gap-6 w-full lg:w-4/5">
+      <section
+        class="flex flex-col items-center justify-center lg:items-start lg:justify-start gap-6 w-full lg:w-4/5"
+      >
         <h2 class="font-semibold text-4xl">
           Configuracion del sitio redirijido con DNS
         </h2>
