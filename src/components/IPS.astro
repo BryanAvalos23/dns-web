@@ -1,0 +1,15 @@
+---
+import { ips } from "../constantes/IPS";
+---
+
+<div class="flex gap-8">
+  {
+    ips.map((server) => {
+      return (
+        <p class="text-lg font-normal text-gray-600">
+          IP servidor {server.nombre}: {server.ip}
+        </p>
+      );
+    })
+  }
+</div>
