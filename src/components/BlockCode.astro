@@ -5,13 +5,13 @@ const onClickCode = `navigator.clipboard.writeText(${JSON.stringify(code)})`;
 
 <div class="relative">
   <pre
-    class="bg-gray-800 text-white rounded-lg flex items-center overflow-x-auto">
+    class="bg-gray-800 text-white rounded-lg flex items-center overflow-x-auto z-10">
     <code class={`language-${language}`}>
       {code}
     </code>
   </pre>
   <button
-    class="absolute top-5 right-2 bg-gray-200 text-gray-500 font-bold py-1 px-2 rounded"
+    class="absolute top-5 right-2 bg-gray-200 text-gray-500 font-bold py-1 px-2 rounded z-20"
     onclick={onClickCode}
   >
     Copiar
