@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/sections/Header.astro";
+import SideBar from "../components/sections/SideBar.astro";
+import ArticleServices from "../components/ArticleServices.astro";
+import IPS from "../components/IPS.astro";
+
+import { CONFIGURATION_SSL } from "../constantes/SSL";
+---
+
+<Layout title="Servidores DNS - Web">
+  <Header />
+  <main
+    class="flex flex-col lg:grid lg:grid-cols-4 gap-16 px-4 md:px-10 xl:px-32 pt-10 py-10"
+  >
+    <SideBar
+      uno="Instalacion de apache2"
+      dos="Configuracion de apache2"
+      tres="Configuracion con DNS"
+      temaUno="Servidor DNS"
+      temaDos="Servidor web"
+      temaTres="Configurar cliente"
+    />
+    <div class="flex flex-col gap-10 w-full lg:col-start-2 lg:col-end-5">
+      <section
+        class="flex flex-col items-center justify-center lg:justify-start lg:items-start gap-6 w-full lg:w-4/5"
+      >
+        <h2 class="font-semibold text-4xl text-center lg:text-left">
+          Configuracion del SSL
+        </h2>
+        <IPS />
+        {
+          CONFIGURATION_SSL.map((paso) => {
+            return (
+              <ArticleServices
+                text={paso.texto}
+                code={paso.code}
+                id={paso.id}
+              />
+            );
+          })
+        }
+      </section>
+    </div>
+  </main>
+</Layout>
