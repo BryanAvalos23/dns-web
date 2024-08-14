@@ -6,13 +6,55 @@ import Menu from "../Icons/Menu.astro";
 
 <nav class="flex justify-between px-12 py-8">
   <Logo class="w-20" />
-  <div class="flex gap-4">
-    <ul class="hidden gap-12 sm:flex">
-      <LinkNav enlace="/" contenido="Home" />
-      <LinkNav enlace="/server-dns" contenido="Server DNS" />
-      <LinkNav enlace="/server-web" contenido="Server WEB" />
-      <LinkNav enlace="/ssl" contenido="SSL" />
-    </ul>
-    <Menu class="text-white block sm:hidden font-bold" />
-  </div>
+  <ul
+    class="hidden gap-12 sm:flex flex-col sm:flex-row sm:static absolute top-0 right-0 w-1/2 sm:w-3/4 lg:w-96 h-full bg-gray-700 sm:bg-transparent text-white sm:text-black sm:p-0 py-8"
+    id="nav-menu"
+  >
+    <Menu
+      id="menuCloseIcon"
+      class="lg:hidden block hover:cursor-pointer mx-4 hover:text-yellow-500"
+    />
+    <LinkNav enlace="/" contenido="Home" />
+    <LinkNav enlace="/server-dns" contenido="Server DNS" />
+    <LinkNav enlace="/server-web" contenido="Server WEB" />
+    <LinkNav enlace="/ssl" contenido="SSL" />
+  </ul>
+  <Menu
+    data-collapse-toggle="nav-menu"
+    type="button"
+    id="menuOpenIcon"
+    class="text-white block sm:hidden font-bold hover:cursor-pointer hover:text-yellow-500"
+  />
 </nav>
+
+<script>
+  const menuOpen = document.querySelector("#menuOpenIcon");
+  const menuClose = document.querySelector("#menuCloseIcon");
+  const navbar = document.querySelector("#nav-menu");
+  const enlace = document.querySelectorAll(".link");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    menuOpen.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", closeMenu);
+  });
+
+  const openMenu = () => {
+    navbar.classList.toggle("hidden");
+    menuOpen.classList.add("hidden");
+    navbar.classList.add("flex", "text-white", "gap-4");
+    enlace.forEach((link) => {
+      link.classList.add("p-4", "hover:bg-gray-600", "w-full");
+    });
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    navbar.classList.toggle("hidden");
+    menuOpen.classList.remove("hidden");
+    navbar.classList.remove("flex", "text-white", "gap-4");
+    enlace.forEach((link) => {
+      link.classList.remove("p-4", "hover:bg-gray-600", "w-full");
+    });
+    document.body.style.overflow = "auto";
+  };
+</script>
